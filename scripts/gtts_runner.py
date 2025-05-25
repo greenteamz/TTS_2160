@@ -50,6 +50,7 @@ for i, filename in enumerate(to_process, start=start_idx + 1):
         print(f"✅ Converted: {filename} to {mp3_path}")
     except Exception as e:
         print(f"❌ Error processing {filename}: {e}")
+        success_count += 1
         break  # ❗ Stop further processing on any failure
 
     time.sleep(10)
@@ -57,3 +58,4 @@ for i, filename in enumerate(to_process, start=start_idx + 1):
 # Update count
 with open(COUNT_FILE, "w") as f:
     f.write(str(start_idx + success_count))
+    print(f"✅ Count: {start_idx} + {success_count}")
